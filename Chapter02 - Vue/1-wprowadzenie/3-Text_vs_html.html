@@ -1,0 +1,79 @@
+<!-- Text vs HTML: Różnice w interpolacji -->
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js - interpolacja</title>
+    <style>
+        #app {
+            width: 60%;
+            margin: 20px auto auto auto;
+        }
+
+        input {
+            padding-left: 10px;
+        }
+
+        .animal {
+            font-size: 4em;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app" class="jumbotron">
+        <div class="row">
+            <div class="col-9">
+                <h1><span v-show="name">Witaj, <strong>{{name}}</strong>! </span>Nauczmy się Vue.js</h1>
+            </div>
+        </div>
+        <hr />
+        <div>
+            <label for="name">Jak masz na imię? </label>
+            <input id="name" type="text" v-model="name">
+        </div>
+        <hr />
+        <div class="animal">
+            <div>{{animalCodes.cat}}</div>
+            <div v-text="animalCodes.cat"></div>
+            <div v-html="animalCodes.cat"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+         const animalCodes = {
+                dog: '&#x1f436;',
+                cat: '&#x1f638;',
+                monkey: '&#x1f435;',
+                unicorn: '&#x1f984;'
+        }
+
+        var data = { 
+            name: 'Mati',
+            animalCodes
+        }
+
+        new Vue({
+            el: '#app',
+            data
+        })
+    </script>
+</body>
+
+</html>

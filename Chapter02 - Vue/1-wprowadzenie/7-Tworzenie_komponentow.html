@@ -1,0 +1,40 @@
+<!-- Tworzenie komponentów -->
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue.js - tworzenie komponentów</title>
+    </head>
+    <body>
+        <div id="app">
+            <hello-component></hello-component>
+        </div>  
+
+        <script src="https://unpkg.com/vue"></script>
+        <script> 
+            var HelloComponent = {
+                template: '<div>' +
+                '<input v-model="name" />' +
+                '<h1>Cześć, <strong>{{name}}</strong>!</h1>' +
+                '</div>',
+                data() {
+                    return {
+                        name: 'Tomek'
+                    }
+                }
+            }
+
+            new Vue( {
+                el: '#app',
+                components: {
+                    HelloComponent
+                }
+        
+            })
+        </script>
+    </body>
+</html>
+
+
