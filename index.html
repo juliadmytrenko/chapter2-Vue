@@ -40,7 +40,7 @@
     <hr />
     <div>
         <label for="name">Jak masz na imię? </label>
-        <input id="name" type="text" v-model="name">
+        <input id="name" type="text" v-model.lazy.trim="name">
     </div>
     <hr />
     <div class="animal">
